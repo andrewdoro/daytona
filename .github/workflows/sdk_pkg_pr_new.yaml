@@ -32,5 +32,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
+      - name: Build SDK package
+        run: yarn workspace @daytonaio/sdk build
+
       - name: Publish SDK preview package
-        run: PATH="$PWD/node_modules/.bin:$PATH" npx pkg-pr-new publish --comment=off ./libs/sdk-typescript
+        run: npm_config_ignore_scripts=true npx pkg-pr-new publish --comment=off ./libs/sdk-typescript
