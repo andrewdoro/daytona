@@ -29,11 +29,13 @@ jobs:
       - name: Enable Corepack
         run: corepack enable
 
-      - name: Install dependencies
+      - name: Install SDK dependencies
+        working-directory: ./libs/sdk-typescript
         run: yarn install --immutable
 
       - name: Build SDK package
-        run: yarn workspace @daytonaio/sdk build
+        working-directory: ./libs/sdk-typescript
+        run: yarn build
 
       - name: Publish SDK preview package
         run: npm_config_ignore_scripts=true npx pkg-pr-new publish --comment=off ./libs/sdk-typescript
