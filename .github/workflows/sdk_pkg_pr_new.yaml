@@ -38,4 +38,4 @@ jobs:
         run: yarn build
 
       - name: Publish SDK preview package
-        run: npm_config_ignore_scripts=true npx pkg-pr-new publish --comment=off ./libs/sdk-typescript
+        run: npm_config_ignore_scripts=true npx pkg-pr-new publish --comment=off --no-compact ./libs/sdk-typescript
