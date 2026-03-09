@@ -33,4 +33,4 @@ jobs:
         run: yarn install --immutable
 
       - name: Publish SDK preview package
-        run: npx pkg-pr-new publish --comment=off ./libs/sdk-typescript
+        run: PATH="$PWD/node_modules/.bin:$PATH" npx pkg-pr-new publish --comment=off ./libs/sdk-typescript
